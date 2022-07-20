@@ -1,0 +1,90 @@
+:root {
+}
+
+html,
+body,
+div,
+span,
+h1,
+header,
+main,
+section,
+a,
+button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: inherit;
+}
+
+/* Page layout */
+
+div.main {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+
+header {
+  padding: 12px 20px;
+  display: flex;
+
+  background-color: steelblue;
+}
+
+header .buttons {
+  margin-left: 50px;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 2rem;
+}
+
+header .buttons {
+  display: flex;
+  gap: 20px;
+}
+
+/* Main section */
+
+main {
+  padding: 40px 75px;
+  gap: 80px;
+  flex: 1;
+  display: flex;
+  background-color: grey;
+}
+
+main > section {
+  flex: 1;
+}
+
+section.form {
+  min-width: 500px;
+  background-color: pink;
+}
+
+section.preview {
+  flex: 0 0 750px;
+  height: calc(750px * 1.4);
+  background-color: honeydew;
+}
+
+/* Footer */
+
+footer {
+  background-color: navajowhite;
+  height: 45px;
+}

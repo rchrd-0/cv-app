@@ -65,6 +65,9 @@
       ],
       "react/function-component-definition": [
         0
+      ],
+      "react/prefer-stateless-function": [
+        0
       ]
     }
   },

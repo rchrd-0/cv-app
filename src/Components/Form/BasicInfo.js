@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class BasicInfo extends Component {
   render() {
     return (
-      <section className="form-section" id="form-basic">
+      <section className="form-section" id="input-basic">
         <h3>Basic Information</h3>
         <label htmlFor="input-first-name">
           First name
@@ -26,7 +26,7 @@ class BasicInfo extends Component {
           <input type="text" name="title" id="input-title" />
         </label>
         <label htmlFor="input-location">
-          Location
+          City
           <input type="text" name="location" id="input-location" />
         </label>
         <label htmlFor="input-desc">

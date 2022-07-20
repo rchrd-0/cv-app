@@ -71,9 +71,14 @@ main > section {
   flex: 1;
 }
 
-section.form {
+.input-form {
   min-width: 500px;
   background-color: pink;
+}
+
+.form-section {
+  display: flex;
+  flex-direction: column;
 }
 
 section.preview {

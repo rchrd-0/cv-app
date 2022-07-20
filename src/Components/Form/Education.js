@@ -1,10 +1,5 @@
 import React, { Component } from 'react';
 
-// 2. Education
-// - School/uni name
-// - Location
-// - Programme
-// - Start-end dates
 class Education extends Component {
   render() {
     return (
@@ -26,19 +21,19 @@ class Education extends Component {
           From
           <input
             type="number"
-            name="year-from"
-            id="input-year-from"
+            name="edu-year-from"
+            id="input-edu-year-from"
             maxLength={4}
             pattern="[0-9]{4}"
             placeholder={new Date().getFullYear()}
           />
         </label>
-        <label htmlFor="input-year-til">
+        <label htmlFor="input-edu-year-til">
           To
           <input
             type="number"
-            name="year-to"
-            id="input-year-to"
+            name="edu-year-to"
+            id="input-edu-year-to"
             maxLength={4}
             pattern="[0-9]{4}"
             placeholder="Year or Present"

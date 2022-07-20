@@ -8,8 +8,8 @@ class Form extends Component {
     return (
       <div className="input-form">
         <BasicInfo />
+        <Employment />
         <Education />
-        {/* <Employment /> */}
       </div>
     );
   }

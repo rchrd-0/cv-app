@@ -1,67 +1,59 @@
 import React, { Component } from 'react';
 
-class EmploymentItems extends Component {
+class EducationItems extends Component {
   render() {
     const { fields } = this.props;
     return (
       <>
-        <label htmlFor="input-company">
-          Company name
+        <label htmlFor="input-school">
+          University/School name
           <input
             type="text"
-            name="company-name"
-            id="input-company"
+            name="school-name"
+            id="input-school"
             value={fields.name}
           />
         </label>
-        <label htmlFor="input-company-loc">
+        <label htmlFor="input-school-loc">
           City
           <input
             type="text"
-            name="company-loc"
-            id="input-company-loc"
+            name="school-loc"
+            id="input-school-loc"
             value={fields.location}
           />
         </label>
-        <label htmlFor="input-position">
-          Position
+        <label htmlFor="input-programme">
+          Programme/Qualification
           <input
             type="text"
-            name="position"
-            id="input-position"
-            value={fields.position}
+            name="programme"
+            id="input-programme"
+            value={fields.programme}
           />
         </label>
-        <label htmlFor="input-emp-year-from">
+        <label htmlFor="input-year-from">
           From
           <input
             type="number"
-            name="emp-year-from"
-            id="input-emp-year-from"
+            name="edu-year-from"
+            id="input-edu-year-from"
             maxLength={4}
             pattern="[0-9]{4}"
             placeholder={new Date().getFullYear()}
             value={fields.yearStart}
           />
         </label>
-        <label htmlFor="input-emp-year-til">
+        <label htmlFor="input-edu-year-til">
           To
           <input
             type="number"
-            name="emp-year-to"
-            id="input-emp-year-to"
+            name="edu-year-to"
+            id="input-edu-year-to"
             maxLength={4}
             pattern="[0-9]{4}"
             placeholder="Year or Present"
             value={fields.yearEnd}
-          />
-        </label>
-        <label htmlFor="input-emp-desc">
-          Description
-          <textarea
-            name="description"
-            id="input-emp-desc"
-            value={fields.desc}
           />
         </label>
         <button type="button">Remove</button>
@@ -70,4 +62,4 @@ class EmploymentItems extends Component {
   }
 }
 
-export default EmploymentItems;
+export default EducationItems;

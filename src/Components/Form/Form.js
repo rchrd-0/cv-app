@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import BasicInfo from './BasicInfo';
-import Education from './Education';
-// import Education from './Education';
 import Employment from './Employment';
+import Education from './Education';
 
 class Form extends Component {
   render() {
-    const { sections, employmentEvent } = this.props;
-    const { employment } = sections;
+    const { employmentData, educationData, addEmployment, addEducation } =
+      this.props;
     return (
       <div className="input-form">
         <BasicInfo />
-        <Employment items={employment} clickAdd={employmentEvent} />
+        <Employment items={employmentData} addOnClick={addEmployment} />
+        <Education items={educationData} addOnClick={addEducation} />
       </div>
     );
   }

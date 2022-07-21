@@ -79,12 +79,18 @@ main > section {
 .form-section {
   display: flex;
   flex-direction: column;
+  gap: 10px;
 }
 
 section.preview {
   flex: 0 0 750px;
   height: calc(750px * 1.4);
   background-color: honeydew;
+}
+
+.form-section button {
+  align-self: center;
+  padding: 6px 12px;
 }
 
 /* Footer */

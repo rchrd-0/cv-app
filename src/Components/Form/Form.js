@@ -6,16 +6,18 @@ import Education from './Education';
 class Form extends Component {
   render() {
     const {
+      basicInfoData,
       employmentData,
       educationData,
+      editBasic,
       editEmployment,
       editEducation,
       addEmployment,
       addEducation,
     } = this.props;
     return (
-      <div className="input-form">
-        <BasicInfo />
+      <section className="input-form">
+        <BasicInfo items={basicInfoData} editItem={editBasic} />
         <Employment
           items={employmentData}
           editItem={editEmployment}
@@ -26,7 +28,7 @@ class Form extends Component {
           editItem={editEducation}
           addItem={addEducation}
         />
-      </div>
+      </section>
     );
   }
 }

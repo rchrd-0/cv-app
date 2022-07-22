@@ -8,6 +8,16 @@ class Main extends Component {
     super();
 
     this.state = {
+      basic: {
+        id: uniqid(),
+        firstName: '',
+        lastName: '',
+        phone: '',
+        email: '',
+        title: '',
+        location: '',
+        desc: '',
+      },
       employment: [
         {
           id: uniqid(),
@@ -31,21 +41,35 @@ class Main extends Component {
       ],
     };
 
+    this.editBasic = this.editBasic.bind(this);
     this.editEmployment = this.editEmployment.bind(this);
     this.editEducation = this.editEducation.bind(this);
     this.addEmployment = this.addEmployment.bind(this);
     this.addEducation = this.addEducation.bind(this);
   }
 
+  editBasic(e) {
+    const { name, value } = e.target;
+    this.setState((prevState) => ({
+      basic: {
+        ...prevState.basic,
+        [name]: value,
+      },
+    }));
+  }
+
   editEmployment(e, id) {
     const { name, value } = e.target;
+
     this.setState((prevState) => {
       const newItem = prevState.employment.map((item) => {
         if (item.id === id) {
           return { ...item, [name]: value };
         }
+
         return item;
       });
+
       return {
         ...prevState,
         employment: [...newItem],
@@ -55,13 +79,16 @@ class Main extends Component {
 
   editEducation(e, id) {
     const { name, value } = e.target;
+
     this.setState((prevState) => {
       const newItem = prevState.education.map((item) => {
         if (item.id === id) {
           return { ...item, [name]: value };
         }
+
         return item;
       });
+
       return {
         ...prevState,
         education: [...newItem],
@@ -104,12 +131,14 @@ class Main extends Component {
   }
 
   render() {
-    const { employment, education } = this.state;
+    const { basic, employment, education } = this.state;
     return (
       <main>
         <Form
+          basicInfoData={basic}
           employmentData={employment}
           educationData={education}
+          editBasic={this.editBasic}
           editEmployment={this.editEmployment}
           editEducation={this.editEducation}
           addEmployment={this.addEmployment}

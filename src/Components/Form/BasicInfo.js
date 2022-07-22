@@ -2,36 +2,80 @@ import React, { Component } from 'react';
 
 class BasicInfo extends Component {
   render() {
+    const { items, editItem } = this.props;
+    const { id, firstName, lastName, phone, email, title, location, desc } =
+      items;
     return (
       <section className="form-section" id="input-basic">
         <h3>Basic Information</h3>
-        <label htmlFor="input-first-name">
+        <label htmlFor={`${id}-first-name`}>
           First name
-          <input type="text" name="first-name" id="input-first-name" />
+          <input
+            type="text"
+            name="firstName"
+            id={`${id}-first-name`}
+            value={firstName}
+            onChange={(e) => editItem(e, id)}
+          />
         </label>
-        <label htmlFor="input-last-name">
+        <label htmlFor={`${id}-last-name`}>
           Last name
-          <input type="text" name="last-name" id="input-last-name" />
+          <input
+            type="text"
+            name="lastName"
+            id={`${id}-last-name`}
+            value={lastName}
+            onChange={(e) => editItem(e, id)}
+          />
         </label>
-        <label htmlFor="input-phone">
+        <label htmlFor={`${id}-phone`}>
           Phone number
-          <input type="number" name="phone" id="input-phone" />
+          <input
+            type="number"
+            name="phone"
+            id={`${id}-phone`}
+            value={phone}
+            onChange={(e) => editItem(e, id)}
+          />
         </label>
-        <label htmlFor="input-email">
+        <label htmlFor={`${id}-email`}>
           Email
-          <input type="email" name="email" id="input-email" />
+          <input
+            type="email"
+            name="email"
+            id={`${id}-email`}
+            value={email}
+            onChange={(e) => editItem(e, id)}
+          />
         </label>
-        <label htmlFor="input-title">
+        <label htmlFor={`${id}-title`}>
           Title
-          <input type="text" name="title" id="input-title" />
+          <input
+            type="text"
+            name="title"
+            id={`${id}-title`}
+            value={title}
+            onChange={(e) => editItem(e, id)}
+          />
         </label>
-        <label htmlFor="input-location">
+        <label htmlFor={`${id}-location`}>
           City
-          <input type="text" name="location" id="input-location" />
+          <input
+            type="text"
+            name="location"
+            id={`${id}-location`}
+            value={location}
+            onChange={(e) => editItem(e, id)}
+          />
         </label>
-        <label htmlFor="input-desc">
+        <label htmlFor={`${id}-desc`}>
           Description
-          <textarea name="description" id="input-desc" />
+          <textarea
+            name="desc"
+            id={`${id}-location`}
+            value={desc}
+            onChange={(e) => editItem(e, id)}
+          />
         </label>
       </section>
     );

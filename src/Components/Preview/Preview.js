@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import BasicInfo from './BasicInfo';
-// import Employment from './Employment';
+import Employment from './Employment';
 // import Education from './Education';
 
 class Preview extends Component {
@@ -11,8 +11,8 @@ class Preview extends Component {
     return (
       <div id="preview">
         <BasicInfo data={basic} />
-        {/* <Employment data={employment} />
-        <Education data={education} /> */}
+        <Employment data={employment} />
+        {/* <Education data={education} /> */}
       </div>
     );
   }

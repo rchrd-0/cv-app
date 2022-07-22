@@ -18,7 +18,7 @@ class Form extends Component {
       removeEducation,
     } = this.props;
     return (
-      <section className="input-form">
+      <div id="input-form">
         <BasicInfo items={basicInfoData} editItem={editBasic} />
         <Employment
           items={employmentData}
@@ -32,7 +32,7 @@ class Form extends Component {
           addItem={addEducation}
           removeItem={removeEducation}
         />
-      </section>
+      </div>
     );
   }
 }

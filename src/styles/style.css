@@ -6,6 +6,7 @@ body,
 div,
 span,
 h1,
+h2,
 header,
 main,
 section,
@@ -71,7 +72,7 @@ main > section {
   flex: 1;
 }
 
-.input-form {
+#input-form {
   min-width: 500px;
   background-color: pink;
 }
@@ -82,7 +83,7 @@ main > section {
   gap: 10px;
 }
 
-section.preview {
+#preview {
   flex: 0 0 750px;
   height: calc(750px * 1.4);
   background-color: honeydew;

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import uniqid from 'uniqid';
 
 import Form from './Form/Form';
+import Preview from './Preview/Preview';
 
 class Main extends Component {
   constructor() {
@@ -158,7 +159,7 @@ class Main extends Component {
           removeEmployment={this.removeEmployment}
           removeEducation={this.removeEducation}
         />
-        <section className="preview" />
+        <Preview data={this.state} />
       </main>
     );
   }

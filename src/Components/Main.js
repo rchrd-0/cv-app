@@ -31,15 +31,22 @@ class Main extends Component {
       ],
     };
 
+    // this.editEmployment = this.editEmployment.bind(this);
     this.addEmployment = this.addEmployment.bind(this);
     this.addEducation = this.addEducation.bind(this);
   }
 
-  addEmployment() {
-    const { employment } = this.state;
+  // editEmployment(e, id) {
+  //   const { name, value } = e.target;
+  //   const { employment } = this.state;
+  //   // const thisItem = employment.find(item => item.id === id);
+  // }
 
-    this.setState({
-      employment: employment.concat([
+  addEmployment() {
+    this.setState((prevState) => ({
+      ...prevState,
+      employment: [
+        ...prevState.employment,
         {
           id: uniqid(),
           name: '',
@@ -48,15 +55,15 @@ class Main extends Component {
           yearStart: '',
           yearEnd: '',
         },
-      ]),
-    });
+      ],
+    }));
   }
 
   addEducation() {
-    const { education } = this.state;
-
-    this.setState({
-      education: education.concat([
+    this.setState((prevState) => ({
+      ...prevState,
+      education: [
+        ...prevState.education,
         {
           id: uniqid(),
           name: '',
@@ -65,8 +72,8 @@ class Main extends Component {
           yearStart: '',
           yearEnd: '',
         },
-      ]),
-    });
+      ],
+    }));
   }
 
   render() {
@@ -76,6 +83,7 @@ class Main extends Component {
         <Form
           employmentData={employment}
           educationData={education}
+          editEmployment={this.editEmployment}
           addEmployment={this.addEmployment}
           addEducation={this.addEducation}
         />

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import BasicInfo from './BasicInfo';
 import Employment from './Employment';
-// import Education from './Education';
+import Education from './Education';
 
 class Preview extends Component {
   render() {
@@ -12,7 +12,7 @@ class Preview extends Component {
       <div id="preview">
         <BasicInfo data={basic} />
         <Employment data={employment} />
-        {/* <Education data={education} /> */}
+        <Education data={education} />
       </div>
     );
   }

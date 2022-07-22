@@ -3,15 +3,20 @@ import EducationItems from './EducationItems';
 
 class Education extends Component {
   render() {
-    const { items, editItem, addItem } = this.props;
+    const { items, editItem, addItem, removeItem } = this.props;
     return (
-      <section className="form-section" id="input-education">
+      <section className="form-section" data-component="education">
         <h3>Education</h3>
         {items.map((item) => (
-          <EducationItems key={item.id} fields={item} onChange={editItem} />
+          <EducationItems
+            key={item.id}
+            fields={item}
+            onChange={editItem}
+            remove={removeItem}
+          />
         ))}
         <button type="button" onClick={addItem}>
-          Add education
+          Add
         </button>
       </section>
     );

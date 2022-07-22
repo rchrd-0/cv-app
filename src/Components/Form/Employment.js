@@ -3,15 +3,20 @@ import EmploymentItems from './EmploymentItems';
 
 class Employment extends Component {
   render() {
-    const { items, addItem, editItem } = this.props;
+    const { items, addItem, editItem, removeItem } = this.props;
     return (
-      <section className="form-section" id="input-employment">
+      <section className="form-section" data-component="employment">
         <h3>Employment</h3>
         {items.map((item) => (
-          <EmploymentItems key={item.id} fields={item} onChange={editItem} />
+          <EmploymentItems
+            key={item.id}
+            fields={item}
+            onChange={editItem}
+            remove={removeItem}
+          />
         ))}
         <button type="button" onClick={addItem}>
-          Add employment
+          Add
         </button>
       </section>
     );

@@ -46,6 +46,8 @@ class Main extends Component {
     this.editEducation = this.editEducation.bind(this);
     this.addEmployment = this.addEmployment.bind(this);
     this.addEducation = this.addEducation.bind(this);
+    this.removeEmployment = this.removeEmployment.bind(this);
+    this.removeEducation = this.removeEducation.bind(this);
   }
 
   editBasic(e) {
@@ -98,7 +100,6 @@ class Main extends Component {
 
   addEmployment() {
     this.setState((prevState) => ({
-      ...prevState,
       employment: [
         ...prevState.employment,
         {
@@ -115,7 +116,6 @@ class Main extends Component {
 
   addEducation() {
     this.setState((prevState) => ({
-      ...prevState,
       education: [
         ...prevState.education,
         {
@@ -127,6 +127,18 @@ class Main extends Component {
           yearEnd: '',
         },
       ],
+    }));
+  }
+
+  removeEmployment(id) {
+    this.setState((prevState) => ({
+      employment: prevState.employment.filter((item) => item.id !== id),
+    }));
+  }
+
+  removeEducation(id) {
+    this.setState((prevState) => ({
+      education: prevState.education.filter((item) => item.id !== id),
     }));
   }
 
@@ -143,6 +155,8 @@ class Main extends Component {
           editEducation={this.editEducation}
           addEmployment={this.addEmployment}
           addEducation={this.addEducation}
+          removeEmployment={this.removeEmployment}
+          removeEducation={this.removeEducation}
         />
         <section className="preview" />
       </main>

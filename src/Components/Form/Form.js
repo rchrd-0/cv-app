@@ -14,6 +14,8 @@ class Form extends Component {
       editEducation,
       addEmployment,
       addEducation,
+      removeEmployment,
+      removeEducation,
     } = this.props;
     return (
       <section className="input-form">
@@ -22,11 +24,13 @@ class Form extends Component {
           items={employmentData}
           editItem={editEmployment}
           addItem={addEmployment}
+          removeItem={removeEmployment}
         />
         <Education
           items={educationData}
           editItem={editEducation}
           addItem={addEducation}
+          removeItem={removeEducation}
         />
       </section>
     );

@@ -6,7 +6,7 @@ class BasicInfo extends Component {
     const { id, firstName, lastName, phone, email, title, location, desc } =
       items;
     return (
-      <section className="form-section" id="input-basic">
+      <section className="form-section" data-component="basic">
         <h3>Basic Information</h3>
         <label htmlFor={`${id}-first-name`}>
           First name

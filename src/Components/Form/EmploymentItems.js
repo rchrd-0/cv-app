@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class EmploymentItems extends Component {
   render() {
-    const { fields, onChange } = this.props;
+    const { fields, onChange, remove } = this.props;
     const { id, name, location, position, yearStart, yearEnd, desc } = fields;
     return (
       <>
@@ -44,7 +44,7 @@ class EmploymentItems extends Component {
             id={`${id}-yr-frm`}
             maxLength={4}
             pattern="[0-9]{4}"
-            placeholder={new Date().getFullYear()}
+            placeholder={`Year e.g. ${new Date().getFullYear()}`}
             value={yearStart}
             onChange={(e) => onChange(e, id)}
           />
@@ -71,7 +71,9 @@ class EmploymentItems extends Component {
             onChange={(e) => onChange(e, id)}
           />
         </label>
-        <button type="button">Remove</button>
+        <button type="button" onClick={() => remove(id)}>
+          Remove
+        </button>
       </>
     );
   }

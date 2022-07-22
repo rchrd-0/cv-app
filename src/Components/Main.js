@@ -31,16 +31,43 @@ class Main extends Component {
       ],
     };
 
-    // this.editEmployment = this.editEmployment.bind(this);
+    this.editEmployment = this.editEmployment.bind(this);
+    this.editEducation = this.editEducation.bind(this);
     this.addEmployment = this.addEmployment.bind(this);
     this.addEducation = this.addEducation.bind(this);
   }
 
-  // editEmployment(e, id) {
-  //   const { name, value } = e.target;
-  //   const { employment } = this.state;
-  //   // const thisItem = employment.find(item => item.id === id);
-  // }
+  editEmployment(e, id) {
+    const { name, value } = e.target;
+    this.setState((prevState) => {
+      const newItem = prevState.employment.map((item) => {
+        if (item.id === id) {
+          return { ...item, [name]: value };
+        }
+        return item;
+      });
+      return {
+        ...prevState,
+        employment: [...newItem],
+      };
+    });
+  }
+
+  editEducation(e, id) {
+    const { name, value } = e.target;
+    this.setState((prevState) => {
+      const newItem = prevState.education.map((item) => {
+        if (item.id === id) {
+          return { ...item, [name]: value };
+        }
+        return item;
+      });
+      return {
+        ...prevState,
+        education: [...newItem],
+      };
+    });
+  }
 
   addEmployment() {
     this.setState((prevState) => ({
@@ -84,6 +111,7 @@ class Main extends Component {
           employmentData={employment}
           educationData={education}
           editEmployment={this.editEmployment}
+          editEducation={this.editEducation}
           addEmployment={this.addEmployment}
           addEducation={this.addEducation}
         />

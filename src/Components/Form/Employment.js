@@ -3,14 +3,14 @@ import EmploymentItems from './EmploymentItems';
 
 class Employment extends Component {
   render() {
-    const { items, addOnClick } = this.props;
+    const { items, addItem, editItem} = this.props;
     return (
       <section className="form-section" id="input-employment">
         <h3>Employment</h3>
-        {items.map(item => (
-          <EmploymentItems key={item.id} fields={item}/>
+        {items.map((item) => (
+          <EmploymentItems key={item.id} fields={item} onChange={editItem}/>
         ))}
-        <button type="button" onClick={addOnClick}>
+        <button type="button" onClick={addItem}>
           Add employment
         </button>
       </section>

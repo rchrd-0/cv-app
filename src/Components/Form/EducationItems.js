@@ -2,58 +2,64 @@ import React, { Component } from 'react';
 
 class EducationItems extends Component {
   render() {
-    const { fields } = this.props;
+    const { fields, onChange } = this.props;
+    const { id, name, location, programme, yearStart, yearEnd } = fields;
     return (
       <>
-        <label htmlFor="input-school">
+        <label htmlFor={`${id}-name`}>
           University/School name
           <input
             type="text"
-            name="school-name"
-            id="input-school"
-            value={fields.name}
+            name="name"
+            id={`${id}-name`}
+            value={name}
+            onChange={(e) => onChange(e, id)}
           />
         </label>
-        <label htmlFor="input-school-loc">
+        <label htmlFor={`${id}-loc`}>
           City
           <input
             type="text"
-            name="school-loc"
-            id="input-school-loc"
-            value={fields.location}
+            name="location"
+            id={`${id}-loc`}
+            value={location}
+            onChange={(e) => onChange(e, id)}
           />
         </label>
-        <label htmlFor="input-programme">
+        <label htmlFor={`${id}-prgrm`}>
           Programme/Qualification
           <input
             type="text"
             name="programme"
-            id="input-programme"
-            value={fields.programme}
+            id={`${id}-prgrm`}
+            value={programme}
+            onChange={(e) => onChange(e, id)}
           />
         </label>
-        <label htmlFor="input-year-from">
+        <label htmlFor={`${id}-yr-frm`}>
           From
           <input
-            type="number"
-            name="edu-year-from"
-            id="input-edu-year-from"
+            type="text"
+            name="yearFrom"
+            id={`${id}-yr-frm`}
             maxLength={4}
             pattern="[0-9]{4}"
             placeholder={new Date().getFullYear()}
-            value={fields.yearStart}
+            value={yearStart}
+            onChange={(e) => onChange(e, id)}
           />
         </label>
-        <label htmlFor="input-edu-year-til">
+        <label htmlFor={`${id}-yr-to`}>
           To
           <input
-            type="number"
-            name="edu-year-to"
-            id="input-edu-year-to"
+            type="text"
+            name="yearEnd"
+            id={`${id}-yr-to`}
             maxLength={4}
             pattern="[0-9]{4}"
             placeholder="Year or Present"
-            value={fields.yearEnd}
+            value={yearEnd}
+            onChange={(e) => onChange(e, id)}
           />
         </label>
         <button type="button">Remove</button>

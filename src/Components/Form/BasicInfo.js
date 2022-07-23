@@ -31,9 +31,12 @@ class BasicInfo extends Component {
         <label htmlFor={`${id}-phone`}>
           Phone number
           <input
-            type="number"
+            type="phone"
             name="phone"
             id={`${id}-phone`}
+            maxLength={8}
+            pattern="[0-9]+"
+            placeholder="12345678"
             value={phone}
             onChange={(e) => editItem(e, id)}
           />

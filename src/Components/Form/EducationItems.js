@@ -40,10 +40,10 @@ class EducationItems extends Component {
           From
           <input
             type="text"
-            name="yearFrom"
+            name="yearStart"
             id={`${id}-yr-frm`}
             maxLength={4}
-            pattern="[0-9]{4}"
+            pattern="[0-9]+"
             placeholder={`Year e.g. ${new Date().getFullYear()}`}
             value={yearStart}
             onChange={(e) => onChange(e, id)}
@@ -56,7 +56,7 @@ class EducationItems extends Component {
             name="yearEnd"
             id={`${id}-yr-to`}
             maxLength={4}
-            pattern="[0-9]{4}"
+            pattern="[0-9]+"
             placeholder="Year or Present"
             value={yearEnd}
             onChange={(e) => onChange(e, id)}

@@ -3,6 +3,7 @@ import uniqid from 'uniqid';
 
 import Form from './Form/Form';
 import Preview from './Preview/Preview';
+import * as validate from './Utils/InputValidation';
 
 class Main extends Component {
   constructor() {
@@ -53,6 +54,9 @@ class Main extends Component {
 
   editBasic(e) {
     const { name, value } = e.target;
+    const patternInvalid = validate.checkPattern(e.target);
+    if (patternInvalid) return;
+
     this.setState((prevState) => ({
       basic: {
         ...prevState.basic,
@@ -63,6 +67,8 @@ class Main extends Component {
 
   editEmployment(e, id) {
     const { name, value } = e.target;
+    const patternInvalid = validate.checkPattern(e.target);
+    if (patternInvalid) return;
 
     this.setState((prevState) => {
       const newItem = prevState.employment.map((item) => {
@@ -82,6 +88,8 @@ class Main extends Component {
 
   editEducation(e, id) {
     const { name, value } = e.target;
+    const patternInvalid = validate.checkPattern(e.target);
+    if (patternInvalid) return;
 
     this.setState((prevState) => {
       const newItem = prevState.education.map((item) => {

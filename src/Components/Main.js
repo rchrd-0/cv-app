@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import uniqid from 'uniqid';
 
+import Header from './Header';
 import Form from './Form/Form';
 import Preview from './Preview/Preview';
 import * as validate from './Utils/InputValidation';
@@ -41,6 +42,7 @@ class Main extends Component {
           yearEnd: '',
         },
       ],
+      fullWidth: false,
     };
 
     this.editBasic = this.editBasic.bind(this);
@@ -50,6 +52,7 @@ class Main extends Component {
     this.addEducation = this.addEducation.bind(this);
     this.removeEmployment = this.removeEmployment.bind(this);
     this.removeEducation = this.removeEducation.bind(this);
+    this.hideForm = this.hideForm.bind(this);
   }
 
   editBasic(e) {
@@ -151,24 +154,35 @@ class Main extends Component {
     }));
   }
 
+  hideForm() {
+    this.setState((prevState) => ({
+      fullWidth: !prevState.fullWidth,
+    }));
+  }
+
   render() {
-    const { basic, employment, education } = this.state;
+    const { basic, employment, education, fullWidth } = this.state;
     return (
-      <main>
-        <Form
-          basicInfoData={basic}
-          employmentData={employment}
-          educationData={education}
-          editBasic={this.editBasic}
-          editEmployment={this.editEmployment}
-          editEducation={this.editEducation}
-          addEmployment={this.addEmployment}
-          addEducation={this.addEducation}
-          removeEmployment={this.removeEmployment}
-          removeEducation={this.removeEducation}
-        />
-        <Preview data={this.state} />
-      </main>
+      <>
+        <Header onClick={this.hideForm} />
+        <main>
+          {fullWidth ? null : (
+            <Form
+              basicInfoData={basic}
+              employmentData={employment}
+              educationData={education}
+              editBasic={this.editBasic}
+              editEmployment={this.editEmployment}
+              editEducation={this.editEducation}
+              addEmployment={this.addEmployment}
+              addEducation={this.addEducation}
+              removeEmployment={this.removeEmployment}
+              removeEducation={this.removeEducation}
+            />
+          )}
+          <Preview data={this.state} />
+        </main>
+      </>
     );
   }
 }

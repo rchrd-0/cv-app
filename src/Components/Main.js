@@ -164,7 +164,7 @@ class Main extends Component {
     const { basic, employment, education, fullWidth } = this.state;
     return (
       <>
-        <Header onClick={this.hideForm} />
+        <Header onClick={this.hideForm} mode={fullWidth}/>
         <main>
           {fullWidth ? null : (
             <Form

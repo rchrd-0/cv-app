@@ -7,12 +7,7 @@ class BasicInfo extends Component {
       items;
     return (
       <section className="form-section" data-component="basic">
-        <div id="first-row" className="span-2">
-          <h2>Basic</h2>
-          <button type="button">
-            Show/Hide
-          </button>
-        </div>
+        <h2>Basic</h2>
         <label htmlFor={`${id}-first-name`}>
           First name
           <input

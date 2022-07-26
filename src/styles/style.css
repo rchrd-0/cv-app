@@ -42,7 +42,6 @@ html {
 
 body {
   background-color: var(--background);
-  padding: 20px 75px;
 }
 
 button {
@@ -53,6 +52,7 @@ button {
   cursor: pointer;
   border-radius: 8px;
   transition: all 0.1s ease-in-out;
+  user-select: none;
 }
 
 button:active {
@@ -62,25 +62,39 @@ button:active {
 
 /* Page layout */
 
+#root {
+  width: 100%;
+}
+
 div.main {
   display: flex;
   flex-direction: column;
+  padding: 20px 40px;
 }
 
 /* Header */
 
 header {
-  width: fit-content;
-  margin-bottom: 10px;
-  padding: 10px 20px;
+  width: 500px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 4px;
+  gap: 20px;
+  margin-bottom: 10px;
   font-family: "Jost", Helvetica, Arial, sans-serif;
   color: var(--section-bg);
+  background-color: var(--background);
+  user-select: none;
+}
+
+#header-left {
+  border-radius: 4px;
+  padding: 10px 20px;
   background-color: #3b4252;
   box-shadow: var(--box-shadow-3);
+}
+
+#header-right {
+  display: flex;
+  align-items: center;
 }
 
 header h1 {
@@ -109,21 +123,37 @@ header h1 {
   width: 24px;
 }
 
+#show-hide-btn {
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: 12px center;
+  padding-left: 40px;
+  background-color: #66BCC5;
+}
+
+#show-hide-btn.active {
+  background-image: url("../Assets/eye-off.svg");
+}
+#show-hide-btn.hidden {
+  background-image: url("../Assets/eye.svg");
+}
+
 /* Main section */
 
 main {
-  padding: 20px 0;
+  padding: 30px 0;
   gap: 80px;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
   background-color: var(--background);
 }
 
-main > div {
-  flex: 1;
-}
-
 #input-form {
-  min-width: 500px;
+  flex: 1;
+  max-width: 700px;
+  min-width: 400px;
   background-color: #d8dee9;
   box-shadow: var(--box-shadow-1);
   color: #434c5d;
@@ -131,10 +161,6 @@ main > div {
   font-family: "Jost", Helvetica, Arial, sans-serif;
   padding: 20px 30px;
   border-radius: 8px;
-}
-
-#first-row {
-  display: flex;
 }
 
 input,
@@ -185,19 +211,25 @@ label {
   margin-bottom: 30px;
 }
 
+.form-section:last-of-type {
+  margin-bottom: 0;
+}
+
 .form-section > button {
   width: fit-content;
   place-self: center;
 }
 
 .remove-item {
+  margin-top: 5px;
   background-color: #ab345a;
 }
 
 #preview {
-  /* position: sticky; top: 20px; */
-  flex: 0 0 750px;
-  height: calc(750px * 1.4);
+  flex: 1;
+  min-width: 750px;
+  max-width: 1000px;
+  aspect-ratio: 1 / 1.4;
   background-color: #fff;
   box-shadow: var(--box-shadow-2);
 }

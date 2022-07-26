@@ -6,7 +6,7 @@ class Education extends Component {
     const { items, editItem, addItem, removeItem } = this.props;
     return (
       <section className="form-section" data-component="education">
-        <h3>Education</h3>
+        <h2>Education</h2>
         {items.map((item) => (
           <EducationItems
             key={item.id}
@@ -15,7 +15,7 @@ class Education extends Component {
             remove={removeItem}
           />
         ))}
-        <button type="button" onClick={addItem}>
+        <button type="button" onClick={addItem} className="add-item">
           Add
         </button>
       </section>

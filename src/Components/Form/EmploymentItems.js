@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class EmploymentItems extends Component {
   render() {
     const { fields, onChange, remove } = this.props;
-    const { id, name, location, position, yearStart, yearEnd, desc } = fields;
+    const { id, name, position, yearStart, yearEnd, desc } = fields;
     return (
       <>
         <label htmlFor={`${id}-name`}>
@@ -16,18 +16,8 @@ class EmploymentItems extends Component {
             onChange={(e) => onChange(e, id)}
           />
         </label>
-        <label htmlFor={`${id}-loc`}>
-          City
-          <input
-            type="text"
-            name="location"
-            id={`${id}-loc`}
-            value={location}
-            onChange={(e) => onChange(e, id)}
-          />
-        </label>
         <label htmlFor={`${id}-pos`}>
-          Position
+          Title
           <input
             type="text"
             name="position"
@@ -62,7 +52,7 @@ class EmploymentItems extends Component {
             onChange={(e) => onChange(e, id)}
           />
         </label>
-        <label htmlFor={`${id}-desc`}>
+        <label htmlFor={`${id}-desc`} className="span-2">
           Description
           <textarea
             name="desc"
@@ -71,7 +61,7 @@ class EmploymentItems extends Component {
             onChange={(e) => onChange(e, id)}
           />
         </label>
-        <button type="button" onClick={() => remove(id)}>
+        <button type="button" onClick={() => remove(id)} className="remove-item">
           Remove
         </button>
       </>

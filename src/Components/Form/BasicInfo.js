@@ -7,7 +7,7 @@ class BasicInfo extends Component {
       items;
     return (
       <section className="form-section" data-component="basic">
-        <h3>Basic Information</h3>
+        <h2>Basic</h2>
         <label htmlFor={`${id}-first-name`}>
           First name
           <input
@@ -16,7 +16,7 @@ class BasicInfo extends Component {
             id={`${id}-first-name`}
             value={firstName}
             onChange={(e) => editItem(e, id)}
-          />
+            />
         </label>
         <label htmlFor={`${id}-last-name`}>
           Last name
@@ -26,8 +26,38 @@ class BasicInfo extends Component {
             id={`${id}-last-name`}
             value={lastName}
             onChange={(e) => editItem(e, id)}
+            />
+        </label>
+        <label htmlFor={`${id}-title`} className="skip-col">
+          Title
+          <input
+            type="text"
+            name="title"
+            id={`${id}-title`}
+            value={title}
+            onChange={(e) => editItem(e, id)}
           />
         </label>
+        <label htmlFor={`${id}-location`}>
+          Location
+          <input
+            type="text"
+            name="location"
+            id={`${id}-location`}
+            value={location}
+            onChange={(e) => editItem(e, id)}
+          />
+        </label>
+        <label htmlFor={`${id}-desc`}>
+          Headline
+          <textarea
+            name="desc"
+            id={`${id}-location`}
+            value={desc}
+            onChange={(e) => editItem(e, id)}
+          />
+        </label>
+        <h2 id="contact-header">Contact</h2>
         <label htmlFor={`${id}-phone`}>
           Phone number
           <input
@@ -48,35 +78,6 @@ class BasicInfo extends Component {
             name="email"
             id={`${id}-email`}
             value={email}
-            onChange={(e) => editItem(e, id)}
-          />
-        </label>
-        <label htmlFor={`${id}-title`}>
-          Title
-          <input
-            type="text"
-            name="title"
-            id={`${id}-title`}
-            value={title}
-            onChange={(e) => editItem(e, id)}
-          />
-        </label>
-        <label htmlFor={`${id}-location`}>
-          City
-          <input
-            type="text"
-            name="location"
-            id={`${id}-location`}
-            value={location}
-            onChange={(e) => editItem(e, id)}
-          />
-        </label>
-        <label htmlFor={`${id}-desc`}>
-          Description
-          <textarea
-            name="desc"
-            id={`${id}-location`}
-            value={desc}
             onChange={(e) => editItem(e, id)}
           />
         </label>

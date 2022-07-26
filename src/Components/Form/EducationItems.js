@@ -3,26 +3,16 @@ import React, { Component } from 'react';
 class EducationItems extends Component {
   render() {
     const { fields, onChange, remove } = this.props;
-    const { id, name, location, programme, yearStart, yearEnd } = fields;
+    const { id, name, programme, yearStart, yearEnd } = fields;
     return (
       <>
         <label htmlFor={`${id}-name`}>
-          University/School name
+          University/School
           <input
             type="text"
             name="name"
             id={`${id}-name`}
             value={name}
-            onChange={(e) => onChange(e, id)}
-          />
-        </label>
-        <label htmlFor={`${id}-loc`}>
-          City
-          <input
-            type="text"
-            name="location"
-            id={`${id}-loc`}
-            value={location}
             onChange={(e) => onChange(e, id)}
           />
         </label>
@@ -62,7 +52,7 @@ class EducationItems extends Component {
             onChange={(e) => onChange(e, id)}
           />
         </label>
-        <button type="button" onClick={() => remove(id)}>
+        <button type="button" onClick={() => remove(id)} className="remove-item">
           Remove
         </button>
       </>

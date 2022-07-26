@@ -25,7 +25,6 @@ class Main extends Component {
         {
           id: uniqid(),
           name: '',
-          location: '',
           position: '',
           yearStart: '',
           yearEnd: '',
@@ -36,7 +35,6 @@ class Main extends Component {
         {
           id: uniqid(),
           name: '',
-          location: '',
           programme: '',
           yearStart: '',
           yearEnd: '',
@@ -121,6 +119,7 @@ class Main extends Component {
           programme: '',
           yearStart: '',
           yearEnd: '',
+          desc: '',
         },
       ],
     }));
@@ -164,7 +163,7 @@ class Main extends Component {
     const { basic, employment, education, fullWidth } = this.state;
     return (
       <>
-        <Header onClick={this.hideForm} mode={fullWidth}/>
+        <Header onClick={this.hideForm} mode={fullWidth} />
         <main>
           {fullWidth ? null : (
             <Form

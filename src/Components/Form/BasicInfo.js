@@ -51,8 +51,7 @@ class BasicInfo extends Component {
         </label>
         <label htmlFor={`${id}-desc`} className="span-2">
           Headline
-          <input
-            type="text"
+          <textarea
             name="desc"
             id={`${id}-desc`}
             value={desc}

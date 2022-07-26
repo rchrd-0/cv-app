@@ -5,14 +5,13 @@ class EducationItems extends Component {
     const { data } = this.props;
     const { name, programme, yearStart, yearEnd } = data;
     return (
-      <div className="education-preview">
-        <div>
-          {name}
-          {programme}
-          {yearStart}
-          {yearEnd}
+      <>
+        <div className="name-year">
+          <p className="b-head">{name}</p>
+          <p className="b-head">{`${yearStart} — ${yearEnd}`}</p>
         </div>
-      </div>
+        <div className="c-head">{programme}</div>
+      </>
     );
   }
 }

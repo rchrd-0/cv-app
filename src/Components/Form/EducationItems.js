@@ -52,7 +52,7 @@ class EducationItems extends Component {
             onChange={(e) => onChange(e, id)}
           />
         </label>
-        <button type="button" onClick={() => remove(id)} className="remove-item">
+        <button type="button" onClick={() => remove(id)} className="remove-item span-2">
           Remove
         </button>
       </>

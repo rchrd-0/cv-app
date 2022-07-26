@@ -7,7 +7,12 @@ class BasicInfo extends Component {
       items;
     return (
       <section className="form-section" data-component="basic">
-        <h2>Basic</h2>
+        <div id="first-row" className="span-2">
+          <h2>Basic</h2>
+          <button type="button">
+            Show/Hide
+          </button>
+        </div>
         <label htmlFor={`${id}-first-name`}>
           First name
           <input
@@ -16,7 +21,7 @@ class BasicInfo extends Component {
             id={`${id}-first-name`}
             value={firstName}
             onChange={(e) => editItem(e, id)}
-            />
+          />
         </label>
         <label htmlFor={`${id}-last-name`}>
           Last name
@@ -26,9 +31,9 @@ class BasicInfo extends Component {
             id={`${id}-last-name`}
             value={lastName}
             onChange={(e) => editItem(e, id)}
-            />
+          />
         </label>
-        <label htmlFor={`${id}-title`} className="skip-col">
+        <label htmlFor={`${id}-title`}>
           Title
           <input
             type="text"
@@ -45,14 +50,16 @@ class BasicInfo extends Component {
             name="location"
             id={`${id}-location`}
             value={location}
+            placeholder="e.g. City, Country"
             onChange={(e) => editItem(e, id)}
           />
         </label>
-        <label htmlFor={`${id}-desc`}>
+        <label htmlFor={`${id}-desc`} className="span-2">
           Headline
-          <textarea
+          <input
+            type="text"
             name="desc"
-            id={`${id}-location`}
+            id={`${id}-desc`}
             value={desc}
             onChange={(e) => editItem(e, id)}
           />

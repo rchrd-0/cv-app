@@ -15,7 +15,7 @@ class Education extends Component {
             remove={removeItem}
           />
         ))}
-        <button type="button" onClick={addItem} className="add-item">
+        <button type="button" onClick={addItem} className="add-item span-2">
           Add
         </button>
       </section>

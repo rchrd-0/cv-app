@@ -45,8 +45,7 @@ class EmploymentItems extends Component {
             type="text"
             name="yearEnd"
             id={`${id}-yr-to`}
-            maxLength={4}
-            pattern="[0-9]+"
+            pattern="[0-9A-Za-z]+"
             placeholder="Year or Present"
             value={yearEnd}
             onChange={(e) => onChange(e, id)}

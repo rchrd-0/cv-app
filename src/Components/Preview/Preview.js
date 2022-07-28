@@ -6,8 +6,7 @@ import Education from './Education';
 
 class Preview extends Component {
   render() {
-    const { data } = this.props;
-    const { basic, employment, education } = data;
+    const { basic, employment, education } = this.props;
     return (
       <div id="preview">
         <BasicInfo data={basic} />

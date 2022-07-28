@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import uniqid from 'uniqid';
 
 import Header from './Header';
@@ -6,184 +6,147 @@ import Form from './Form/Form';
 import Preview from './Preview/Preview';
 import * as validate from './Utils/InputValidation';
 
-class Main extends Component {
-  constructor() {
-    super();
+const Main = () => {
+  const [fullWidth, setFullWidth] = useState(false);
 
-    this.state = {
-      basic: {
+  const hideForm = () => setFullWidth(!fullWidth);
+
+  const [basic, setBasic] = useState({
+    firstName: '',
+    lastName: '',
+    phone: '',
+    email: '',
+    title: '',
+    location: '',
+    desc: '',
+  });
+
+  const editBasic = (e) => {
+    const { name, value } = e.target;
+    const patternInvalid = validate.checkPattern(e.target);
+    if (patternInvalid) return;
+
+    setBasic({
+      ...basic,
+      [name]: value,
+    });
+  };
+
+  const [employment, setEmployment] = useState([
+    {
+      id: uniqid(),
+      name: '',
+      position: '',
+      yearStart: '',
+      yearEnd: '',
+      desc: '',
+    },
+  ]);
+
+  const editEmployment = (e, id) => {
+    const { name, value } = e.target;
+    const patternInvalid = validate.checkPattern(e.target);
+    if (patternInvalid) return;
+
+    setEmployment((prevState) => {
+      const newItem = prevState.map((item) => {
+        if (item.id === id) {
+          return { ...item, [name]: value };
+        }
+
+        return item;
+      });
+
+      return [...newItem];
+    });
+  };
+
+  const addEmployment = () => {
+    setEmployment((prevState) => [
+      ...prevState,
+      {
         id: uniqid(),
-        firstName: '',
-        lastName: '',
-        phone: '',
-        email: '',
-        title: '',
+        name: '',
         location: '',
+        programme: '',
+        yearStart: '',
+        yearEnd: '',
         desc: '',
       },
-      employment: [
-        {
-          id: uniqid(),
-          name: '',
-          position: '',
-          yearStart: '',
-          yearEnd: '',
-          desc: '',
-        },
-      ],
-      education: [
-        {
-          id: uniqid(),
-          name: '',
-          programme: '',
-          yearStart: '',
-          yearEnd: '',
-        },
-      ],
-      fullWidth: false,
-    };
+    ]);
+  };
 
-    this.editBasic = this.editBasic.bind(this);
-    this.editEmployment = this.editEmployment.bind(this);
-    this.editEducation = this.editEducation.bind(this);
-    this.addEmployment = this.addEmployment.bind(this);
-    this.addEducation = this.addEducation.bind(this);
-    this.removeEmployment = this.removeEmployment.bind(this);
-    this.removeEducation = this.removeEducation.bind(this);
-    this.hideForm = this.hideForm.bind(this);
-  }
+  const removeEmployment = (id) => {
+    setEmployment((prevState) => prevState.filter((item) => item.id !== id));
+  };
 
-  editBasic(e) {
+  const [education, setEducation] = useState([
+    {
+      id: uniqid(),
+      name: '',
+      programme: '',
+      yearStart: '',
+      yearEnd: '',
+    },
+  ]);
+
+  const editEducation = (e, id) => {
     const { name, value } = e.target;
     const patternInvalid = validate.checkPattern(e.target);
     if (patternInvalid) return;
 
-    this.setState((prevState) => ({
-      basic: {
-        ...prevState.basic,
-        [name]: value,
+    setEducation((prevState) => {
+      const newItem = prevState.map((item) => {
+        if (item.id === id) {
+          return { ...item, [name]: value };
+        }
+
+        return item;
+      });
+
+      return [...newItem];
+    });
+  };
+
+  const addEducation = () => {
+    setEducation((prevState) => [
+      ...prevState,
+      {
+        id: uniqid(),
+        name: '',
+        programme: '',
+        yearStart: '',
+        yearEnd: '',
       },
-    }));
-  }
+    ]);
+  };
 
-  editEmployment(e, id) {
-    const { name, value } = e.target;
-    const patternInvalid = validate.checkPattern(e.target);
-    if (patternInvalid) return;
+  const removeEducation = (id) => {
+    setEducation((prevState) => prevState.filter((item) => item.id !== id));
+  };
 
-    this.setState((prevState) => {
-      const newItem = prevState.employment.map((item) => {
-        if (item.id === id) {
-          return { ...item, [name]: value };
-        }
-
-        return item;
-      });
-
-      return {
-        ...prevState,
-        employment: [...newItem],
-      };
-    });
-  }
-
-  editEducation(e, id) {
-    const { name, value } = e.target;
-    const patternInvalid = validate.checkPattern(e.target);
-    if (patternInvalid) return;
-
-    this.setState((prevState) => {
-      const newItem = prevState.education.map((item) => {
-        if (item.id === id) {
-          return { ...item, [name]: value };
-        }
-
-        return item;
-      });
-
-      return {
-        ...prevState,
-        education: [...newItem],
-      };
-    });
-  }
-
-  addEmployment() {
-    this.setState((prevState) => ({
-      employment: [
-        ...prevState.employment,
-        {
-          id: uniqid(),
-          name: '',
-          location: '',
-          programme: '',
-          yearStart: '',
-          yearEnd: '',
-          desc: '',
-        },
-      ],
-    }));
-  }
-
-  addEducation() {
-    this.setState((prevState) => ({
-      education: [
-        ...prevState.education,
-        {
-          id: uniqid(),
-          name: '',
-          location: '',
-          programme: '',
-          yearStart: '',
-          yearEnd: '',
-        },
-      ],
-    }));
-  }
-
-  removeEmployment(id) {
-    this.setState((prevState) => ({
-      employment: prevState.employment.filter((item) => item.id !== id),
-    }));
-  }
-
-  removeEducation(id) {
-    this.setState((prevState) => ({
-      education: prevState.education.filter((item) => item.id !== id),
-    }));
-  }
-
-  hideForm() {
-    this.setState((prevState) => ({
-      fullWidth: !prevState.fullWidth,
-    }));
-  }
-
-  render() {
-    const { basic, employment, education, fullWidth } = this.state;
-    return (
-      <>
-        <Header onClick={this.hideForm} mode={fullWidth} />
-        <main>
-          {fullWidth ? null : (
-            <Form
-              basicInfoData={basic}
-              employmentData={employment}
-              educationData={education}
-              editBasic={this.editBasic}
-              editEmployment={this.editEmployment}
-              editEducation={this.editEducation}
-              addEmployment={this.addEmployment}
-              addEducation={this.addEducation}
-              removeEmployment={this.removeEmployment}
-              removeEducation={this.removeEducation}
-            />
-          )}
-          <Preview data={this.state} />
-        </main>
-      </>
-    );
-  }
-}
+  return (
+    <>
+      <Header onClick={hideForm} mode={fullWidth} />
+      <main>
+        {fullWidth ? null : (
+          <Form
+            basic={basic}
+            editBasic={editBasic}
+            employment={employment}
+            editEmployment={editEmployment}
+            addEmployment={addEmployment}
+            removeEmployment={removeEmployment}
+            education={education}
+            editEducation={editEducation}
+            addEducation={addEducation}
+            removeEducation={removeEducation}
+          />
+        )}
+        <Preview basic={basic} employment={employment} education={education} />
+      </main>
+    </>
+  );
+};
 
 export default Main;

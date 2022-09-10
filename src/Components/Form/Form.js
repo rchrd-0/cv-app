@@ -3,6 +3,8 @@ import BasicInfo from './BasicInfo';
 import Employment from './Employment';
 import Education from './Education';
 
+import InputForm from './styledForm';
+
 const Form = (props) => {
   const {
     basic,
@@ -21,7 +23,7 @@ const Form = (props) => {
     educationActive,
   } = props;
   return (
-    <div id="input-form">
+    <InputForm>
       <BasicInfo items={basic} editItem={editBasic} />
       <Employment
         items={employment}
@@ -39,7 +41,7 @@ const Form = (props) => {
         toggleEducation={toggleEducation}
         educationActive={educationActive}
       />
-    </div>
+    </InputForm>
   );
 };
 

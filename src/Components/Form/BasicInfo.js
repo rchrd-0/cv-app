@@ -4,7 +4,7 @@ const BasicInfo = (props) => {
   const { items, editItem } = props;
   const { firstName, lastName, phone, email, title, location, desc } = items;
   return (
-    <section className="form-section" data-component="basic">
+    <section data-component="basic">
       <h2>Basic</h2>
       <label htmlFor="first-name">
         First name

@@ -3,7 +3,7 @@ import React from 'react';
 const BasicInfo = ({ data }) => {
   const { firstName, lastName, phone, email, title, location, desc } = data;
   return (
-    <section className="preview-section" data-component="basic">
+    <section data-component="basic">
       <h1 className="a-head" id="personal-name">
         {firstName} {lastName}
       </h1>

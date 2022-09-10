@@ -6,6 +6,7 @@ import Header from './Header';
 import Form from './Form/Form';
 import Preview from './Preview/Preview';
 import validate from './Utils/InputValidation';
+import StyledMain from './styledMain';
 
 const Main = () => {
   const [basic, setBasic] = useState(NewBasic());
@@ -91,7 +92,7 @@ const Main = () => {
   return (
     <>
       <Header onClick={hideForm} mode={fullWidth} />
-      <main>
+      <StyledMain>
         {fullWidth ? null : (
           <Form
             basic={basic}
@@ -117,7 +118,7 @@ const Main = () => {
           education={education}
           educationActive={educationActive}
         />
-      </main>
+      </StyledMain>
     </>
   );
 };

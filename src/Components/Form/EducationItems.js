@@ -50,11 +50,7 @@ const EducationItems = (props) => {
           onChange={(e) => onChange(e, id)}
         />
       </label>
-      <button
-        type="button"
-        onClick={() => remove(id)}
-        className="remove-item span-2"
-      >
+      <button type="button" onClick={() => remove(id)} className="remove-item">
         Remove
       </button>
     </>

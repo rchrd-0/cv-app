@@ -5,7 +5,7 @@ import { NewBasic, NewEmployment, NewEducation } from './Utils/defaultStates';
 import Header from './Header';
 import Form from './Form/Form';
 import Preview from './Preview/Preview';
-import validate from './Utils/inputValidation';
+import validate from './Utils/InputValidation';
 
 const Main = () => {
   const [basic, setBasic] = useState(NewBasic());

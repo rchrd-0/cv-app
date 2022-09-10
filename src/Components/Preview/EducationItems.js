@@ -6,7 +6,9 @@ const EducationItems = ({ data }) => {
     <>
       <div className="name-year">
         <p className="b-head">{name}</p>
-        <p className="b-head">{`${yearStart} — ${yearEnd}`}</p>
+        {yearStart !== '' || yearEnd !== '' ? (
+          <p className="b-head">{`${yearStart} — ${yearEnd}`}</p>
+        ) : null}
       </div>
       <div className="c-head">{programme}</div>
     </>

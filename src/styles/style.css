@@ -199,11 +199,17 @@ label {
 
 #input-form h2 {
   grid-column: 1 / -1;
-  width: 100%;
+  /* width: 100%; */
   color: #262c48;
   font-family: "Jost", Helvetica, Arial, sans-serif;
   font-size: 1.6rem;
   font-weight: 500;
+}
+
+#input-form .form-head {
+  grid-column: 1 / span 2;
+  display: flex;
+  justify-content: space-between;
 }
 
 .form-section {

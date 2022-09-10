@@ -11,9 +11,19 @@ const Main = () => {
   const [basic, setBasic] = useState(NewBasic());
   const [fullWidth, setFullWidth] = useState(false);
   const [employment, setEmployment] = useState([NewEmployment(uniqid())]);
+  const [employmentActive, setEmploymentActive] = useState(false);
   const [education, setEducation] = useState([NewEducation(uniqid())]);
+  const [educationActive, setEducationActive] = useState(false);
 
   const hideForm = () => setFullWidth(!fullWidth);
+
+  const toggleEmployment = () => {
+    setEmploymentActive((prevState) => !prevState);
+  };
+
+  const toggleEducation = () => {
+    setEducationActive((prevState) => !prevState);
+  };
 
   const editBasic = (e) => {
     const { name, value } = e.target;
@@ -94,6 +104,10 @@ const Main = () => {
             editEducation={editEducation}
             addEducation={addEducation}
             removeEducation={removeEducation}
+            toggleEducation={toggleEducation}
+            toggleEmployment={toggleEmployment}
+            employmentActive={employmentActive}
+            educationActive={educationActive}
           />
         )}
         <Preview basic={basic} employment={employment} education={education} />

@@ -15,6 +15,10 @@ const Form = (props) => {
     editEducation,
     addEducation,
     removeEducation,
+    toggleEducation,
+    toggleEmployment,
+    employmentActive,
+    educationActive,
   } = props;
   return (
     <div id="input-form">
@@ -24,12 +28,16 @@ const Form = (props) => {
         editItem={editEmployment}
         addItem={addEmployment}
         removeItem={removeEmployment}
+        toggleEmployment={toggleEmployment}
+        employmentActive={employmentActive}
       />
       <Education
         items={education}
         editItem={editEducation}
         addItem={addEducation}
         removeItem={removeEducation}
+        toggleEducation={toggleEducation}
+        educationActive={educationActive}
       />
     </div>
   );

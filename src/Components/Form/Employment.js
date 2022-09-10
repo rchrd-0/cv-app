@@ -2,21 +2,37 @@ import React from 'react';
 import EmploymentItems from './EmploymentItems';
 
 const Employment = (props) => {
-  const { items, editItem, addItem, removeItem } = props;
+  const {
+    items,
+    editItem,
+    addItem,
+    removeItem,
+    employmentActive,
+    toggleEmployment,
+  } = props;
   return (
     <section className="form-section" data-component="employment">
-      <h2>Employment</h2>
-      {items.map((item) => (
-        <EmploymentItems
-          key={item.id}
-          fields={item}
-          onChange={editItem}
-          remove={removeItem}
-        />
-      ))}
-      <button type="button" onClick={addItem} className="add-item span-2">
-        Add
-      </button>
+      <div className="form-head">
+        <h2>Employment</h2>
+        <button type="button" onClick={toggleEmployment}>
+          {employmentActive ? 'Exclude section' : 'Include section'}
+        </button>
+      </div>
+      {employmentActive ? (
+        <>
+          {items.map((item) => (
+            <EmploymentItems
+              key={item.id}
+              fields={item}
+              onChange={editItem}
+              remove={removeItem}
+            />
+          ))}
+          <button type="button" onClick={addItem} className="add-item span-2">
+            Add
+          </button>
+        </>
+      ) : null}
     </section>
   );
 };

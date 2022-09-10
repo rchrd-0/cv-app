@@ -1,3 +1,4 @@
+import uniqid from 'uniqid';
 import React from 'react';
 
 const EmploymentItems = ({ data }) => {
@@ -10,7 +11,7 @@ const EmploymentItems = ({ data }) => {
         <p className="b-head">{`${yearStart} — ${yearEnd}`}</p>
       </div>
       <div className="c-head">{position}</div>
-      {descArr.map((item, index) => (
+      {descArr.map((item, index = uniqid()) => (
         <div key={index}>&#x2022; {item}</div>
       ))}
     </>

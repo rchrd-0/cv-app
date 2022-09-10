@@ -10,11 +10,13 @@ const BasicInfo = ({ data }) => {
       <p className="b-head">{title}</p>
       <p>{desc}</p>
       <div id="contact">
-        <div id="personal-loc">{location}</div>
-        <div id="personal-phone">{`${phone.slice(0, 4)} ${phone.slice(
-          4
-        )}`}</div>
-        <div id="personal-email">{email}</div>
+        {location ? <div id="personal-loc">{location}</div> : null}
+        {phone ? (
+          <div id="personal-phone">{`${phone.slice(0, 4)} ${phone.slice(
+            4
+          )}`}</div>
+        ) : null}
+        {email ? <div id="personal-email">{email}</div> : null}
       </div>
     </section>
   );

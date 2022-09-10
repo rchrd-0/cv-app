@@ -110,7 +110,13 @@ const Main = () => {
             educationActive={educationActive}
           />
         )}
-        <Preview basic={basic} employment={employment} education={education} />
+        <Preview
+          basic={basic}
+          employment={employment}
+          employmentActive={employmentActive}
+          education={education}
+          educationActive={educationActive}
+        />
       </main>
     </>
   );

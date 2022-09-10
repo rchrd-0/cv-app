@@ -5,12 +5,13 @@ import Employment from './Employment';
 import Education from './Education';
 
 const Preview = (props) => {
-  const { basic, employment, education } = props;
+  const { basic, employment, education, employmentActive, educationActive } =
+    props;
   return (
     <div id="preview">
       <BasicInfo data={basic} />
-      <Employment data={employment} />
-      <Education data={education} />
+      {employmentActive ? <Employment data={employment} /> : null}
+      {educationActive ? <Education data={education} /> : null}
     </div>
   );
 };

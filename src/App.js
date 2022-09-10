@@ -1,25 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-// import './styles/style.css';
 
 import Main from './Components/Main';
 import GlobalStyle from './styles/GlobalStyle';
 import Theme from './styles/Theme';
 
-class App extends Component {
-  render() {
-    return (
-      <>
-        <GlobalStyle />
-        <MainWrapper>
-          <Theme>
-            <Main />
-          </Theme>
-        </MainWrapper>
-      </>
-    );
-  }
-}
+const App = () => {
+  return (
+    <>
+      <GlobalStyle />
+      <MainWrapper>
+        <Theme>
+          <Main />
+        </Theme>
+      </MainWrapper>
+    </>
+  );
+};
 
 const MainWrapper = styled.div`
   display: flex;

@@ -1,29 +1,23 @@
 import React, { useState } from 'react';
 import uniqid from 'uniqid';
 
+import { NewBasic, NewEmployment, NewEducation } from './Utils/defaultStates';
 import Header from './Header';
 import Form from './Form/Form';
 import Preview from './Preview/Preview';
-import * as validate from './Utils/InputValidation';
+import validate from './Utils/inputValidation';
 
 const Main = () => {
+  const [basic, setBasic] = useState(NewBasic());
   const [fullWidth, setFullWidth] = useState(false);
+  const [employment, setEmployment] = useState([NewEmployment(uniqid())]);
+  const [education, setEducation] = useState([NewEducation(uniqid())]);
 
   const hideForm = () => setFullWidth(!fullWidth);
 
-  const [basic, setBasic] = useState({
-    firstName: '',
-    lastName: '',
-    phone: '',
-    email: '',
-    title: '',
-    location: '',
-    desc: '',
-  });
-
   const editBasic = (e) => {
     const { name, value } = e.target;
-    const patternInvalid = validate.checkPattern(e.target);
+    const patternInvalid = validate(e.target);
     if (patternInvalid) return;
 
     setBasic({
@@ -32,20 +26,9 @@ const Main = () => {
     });
   };
 
-  const [employment, setEmployment] = useState([
-    {
-      id: uniqid(),
-      name: '',
-      position: '',
-      yearStart: '',
-      yearEnd: '',
-      desc: '',
-    },
-  ]);
-
   const editEmployment = (e, id) => {
     const { name, value } = e.target;
-    const patternInvalid = validate.checkPattern(e.target);
+    const patternInvalid = validate(e.target);
     if (patternInvalid) return;
 
     setEmployment((prevState) => {
@@ -62,37 +45,16 @@ const Main = () => {
   };
 
   const addEmployment = () => {
-    setEmployment((prevState) => [
-      ...prevState,
-      {
-        id: uniqid(),
-        name: '',
-        location: '',
-        programme: '',
-        yearStart: '',
-        yearEnd: '',
-        desc: '',
-      },
-    ]);
+    setEmployment((prevState) => [...prevState, NewEmployment(uniqid())]);
   };
 
   const removeEmployment = (id) => {
     setEmployment((prevState) => prevState.filter((item) => item.id !== id));
   };
 
-  const [education, setEducation] = useState([
-    {
-      id: uniqid(),
-      name: '',
-      programme: '',
-      yearStart: '',
-      yearEnd: '',
-    },
-  ]);
-
   const editEducation = (e, id) => {
     const { name, value } = e.target;
-    const patternInvalid = validate.checkPattern(e.target);
+    const patternInvalid = validate(e.target);
     if (patternInvalid) return;
 
     setEducation((prevState) => {
@@ -109,16 +71,7 @@ const Main = () => {
   };
 
   const addEducation = () => {
-    setEducation((prevState) => [
-      ...prevState,
-      {
-        id: uniqid(),
-        name: '',
-        programme: '',
-        yearStart: '',
-        yearEnd: '',
-      },
-    ]);
+    setEducation((prevState) => [...prevState, NewEducation(uniqid())]);
   };
 
   const removeEducation = (id) => {

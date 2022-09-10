@@ -1,3 +1,3 @@
 const checkPattern = (input) => input.validity.patternMismatch;
 
-export { checkPattern };
+export default checkPattern;

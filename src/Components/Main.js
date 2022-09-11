@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import uniqid from 'uniqid';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 
 import { NewBasic, NewEmployment, NewEducation } from './Utils/defaultStates';
 import Header from './Header';
@@ -89,9 +91,21 @@ const Main = () => {
     setEducation((prevState) => prevState.filter((item) => item.id !== id));
   };
 
+  const downloadCv = () => {
+    const preview = document.getElementById('preview');
+    html2canvas(preview).then((canvas) => {
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF('p', 'mm', 'a4');
+      const width = pdf.internal.pageSize.getWidth();
+      const height = pdf.internal.pageSize.getHeight();
+      pdf.addImage(imgData, 'PNG', 0, 0, width, height);
+      pdf.save(`CV_${basic.firstName} ${basic.lastName}`);
+    });
+  };
+
   return (
     <>
-      <Header onClick={hideForm} mode={fullWidth} />
+      <Header hideForm={hideForm} mode={fullWidth} download={downloadCv} />
       <StyledMain>
         {fullWidth ? null : (
           <Form

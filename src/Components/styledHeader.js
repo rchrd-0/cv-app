@@ -3,10 +3,11 @@ import styled from 'styled-components';
 import github from '../Assets/github.svg';
 import eyeOff from '../Assets/eye-off.svg';
 import eye from '../Assets/eye.svg';
+import download from '../Assets/download.svg';
 
 const StyledHeader = styled.header`
-  width: 500px;
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
   margin-bottom: 20px;
   color: ${(props) => props.theme.colour.section};
@@ -46,6 +47,7 @@ const StyledHeader = styled.header`
   #header-right {
     display: flex;
     align-items: center;
+    gap: 20px;
 
     > button {
       background-size: 20px;
@@ -56,12 +58,18 @@ const StyledHeader = styled.header`
       background-color: ${(props) => props.theme.colour.valid};
       box-shadow: ${(props) => props.theme.boxShadow.heavy};
 
-      &.active {
-        background-image: url(${eyeOff});
+      &#show-hide-btn {
+        &.active {
+          background-image: url(${eyeOff});
+        }
+
+        &.hidden {
+          background-image: url(${eye});
+        }
       }
 
-      &.hidden {
-        background-image: url(${eye});
+      &#export-btn {
+        background-image: url(${download});
       }
     }
   }

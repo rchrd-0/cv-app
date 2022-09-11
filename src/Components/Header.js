@@ -3,7 +3,7 @@ import React from 'react';
 import StyledHeader from './styledHeader';
 
 const Header = (props) => {
-  const { onClick, mode } = props;
+  const { hideForm, download, mode } = props;
   return (
     <StyledHeader>
       <div id="header-left">
@@ -28,10 +28,13 @@ const Header = (props) => {
         <button
           id="show-hide-btn"
           type="button"
-          onClick={onClick}
+          onClick={hideForm}
           className={`${mode ? 'hidden' : 'active'}`}
         >
           {mode ? 'Show form' : 'Hide form'}
+        </button>
+        <button type="button" id="export-btn" onClick={download}>
+          Export as PDF
         </button>
       </div>
     </StyledHeader>
